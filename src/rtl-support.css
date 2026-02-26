@@ -1,0 +1,62 @@
+/* RTL/LTR Support */
+
+/* General RTL/LTR helpers */
+html[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir="ltr"] {
+  direction: ltr;
+  text-align: left;
+}
+
+/* Margin utilities for RTL/LTR */
+html[dir="rtl"] .ms {
+  margin-right: var(--margin-size, 1rem);
+  margin-left: 0;
+}
+
+html[dir="ltr"] .ms {
+  margin-left: var(--margin-size, 1rem);
+  margin-right: 0;
+}
+
+html[dir="rtl"] .me {
+  margin-left: var(--margin-size, 1rem);
+  margin-right: 0;
+}
+
+html[dir="ltr"] .me {
+  margin-right: var(--margin-size, 1rem);
+  margin-left: 0;
+}
+
+html[dir="rtl"] .ps {
+  padding-right: var(--padding-size, 1rem);
+  padding-left: 0;
+}
+
+html[dir="ltr"] .ps {
+  padding-left: var(--padding-size, 1rem);
+  padding-right: 0;
+}
+
+html[dir="rtl"] .pe {
+  padding-left: var(--padding-size, 1rem);
+  padding-right: 0;
+}
+
+html[dir="ltr"] .pe {
+  padding-right: var(--padding-size, 1rem);
+  padding-left: 0;
+}
+
+/* Common typography adjustments */
+html[dir="ltr"] body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html[dir="rtl"] body {
+  font-family: 'Segoe UI', 'Arial', Sans-serif, Tahoma, Geneva, Verdana;
+}

@@ -1,0 +1,197 @@
+.projects-gallery-section {
+  width: min(1200px, calc(100% - 2.5rem));
+  margin: 0 auto;
+  padding: clamp(2.8rem, 6vw, 4.6rem) clamp(0.9rem, 2vw, 1.4rem);
+  border-radius: 20px;
+  border: 1px solid rgba(21, 57, 96, 0.09);
+  background:
+    linear-gradient(160deg, #f9fbff 0%, #f3f7ff 42%, #edf3fc 100%);
+  box-shadow: 0 14px 34px rgba(13, 34, 57, 0.08);
+}
+
+.projects-gallery-section .section-title {
+  text-align: center;
+  margin-bottom: clamp(1.8rem, 3.6vw, 2.8rem);
+}
+
+.projects-gallery-section .section-title h2 {
+  margin-bottom: 0.45rem;
+  font-size: clamp(1.75rem, 3.5vw, 2.7rem);
+  letter-spacing: -0.02em;
+  color: #006d77;
+}
+
+.projects-gallery-section .section-subtitle {
+  font-size: clamp(0.98rem, 1.35vw, 1.14rem);
+  color: #4a5d73;
+}
+
+.projects-gallery-section .gallery-container {
+  margin-bottom: 1.6rem;
+}
+
+.projects-gallery-section .gallery-slider {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.projects-gallery-section .slider-wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(0.75rem, 1.6vw, 1.2rem);
+}
+
+.projects-gallery-section .gallery-item {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid rgba(17, 48, 83, 0.1);
+  background: #ffffff;
+  box-shadow: 0 10px 22px rgba(13, 34, 57, 0.11);
+  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+}
+
+.projects-gallery-section .gallery-item.hidden {
+  display: none;
+}
+
+.projects-gallery-section .gallery-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 170, 185, 0.28);
+  box-shadow: 0 16px 28px rgba(13, 34, 57, 0.18);
+}
+
+.projects-gallery-section .gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.projects-gallery-section .slider-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.54);
+  background: linear-gradient(120deg, rgba(0, 170, 185, 0.95), rgba(0, 138, 150, 0.92));
+  color: #ffffff;
+  font-size: 26px;
+  line-height: 1;
+  box-shadow: 0 10px 18px rgba(14, 43, 75, 0.26);
+  transition: transform 180ms ease, opacity 180ms ease, box-shadow 180ms ease;
+  z-index: 5;
+}
+
+.projects-gallery-section .slider-nav.prev {
+  right: -21px;
+}
+
+.projects-gallery-section .slider-nav.next {
+  left: -21px;
+}
+
+.projects-gallery-section .slider-nav:hover:not(:disabled) {
+  transform: translateY(-50%) scale(1.05);
+  box-shadow: 0 14px 22px rgba(14, 43, 75, 0.35);
+}
+
+.projects-gallery-section .slider-nav:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.projects-gallery-section .slider-nav:focus-visible,
+.projects-gallery-section .sec-button:focus-visible {
+  outline: 2px solid #01aab9;
+  outline-offset: 2px;
+}
+
+.projects-gallery-section .content-section-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.6rem;
+}
+
+.projects-gallery-section .sec-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 196px;
+  padding: 0.78rem 1.5rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: linear-gradient(120deg, #01aab9, #008A96);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  box-shadow: 0 11px 24px rgba(0, 170, 185, 0.3);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.projects-gallery-section .sec-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 28px rgba(0, 170, 185, 0.36);
+}
+
+@media (max-width: 900px) {
+  .projects-gallery-section {
+    width: min(1200px, calc(100% - 1.4rem));
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+  }
+
+  .projects-gallery-section .slider-wrapper {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .projects-gallery-section .slider-nav.prev {
+    right: -14px;
+  }
+
+  .projects-gallery-section .slider-nav.next {
+    left: -14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .projects-gallery-section {
+    width: calc(100% - 1rem);
+    padding: 1.6rem 0.75rem 1.8rem;
+    border-radius: 14px;
+  }
+
+  .projects-gallery-section .slider-wrapper {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .projects-gallery-section .gallery-item {
+    border-radius: 11px;
+  }
+
+  .projects-gallery-section .slider-nav {
+    display: none;
+  }
+
+  .projects-gallery-section .sec-button {
+    min-width: 176px;
+    padding: 0.72rem 1.2rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .projects-gallery-section .gallery-item,
+  .projects-gallery-section .slider-nav,
+  .projects-gallery-section .sec-button {
+    transition: none;
+  }
+}
