@@ -16,6 +16,13 @@ const ProjectsGallery: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
 
   const local = ['/0126sahuri-01.jpg', '/0126sahuri-02.jpg', '/0126sahuri-03.jpg', '/0126sahuri-04.jpg']
+  const projectTitles = [
+    { en: 'Luxury Villa', he: 'וילה יוקרתית', ar: 'فيلا فاخرة' },
+    { en: 'Modern Office', he: 'משרד מודרני', ar: 'مكتب حديث' },
+    { en: 'Residential Complex', he: 'מתחם מגורים', ar: 'مجمع سكني' },
+    { en: 'Commercial Center', he: 'מרכז מסחרי', ar: 'مركز تجاري' },
+  ]
+  
   const projects: ProjectImage[] = Array.from({ length: 8 }).map((_, i) => ({
     id: i + 1,
     url: local[i % local.length],
@@ -47,18 +54,25 @@ const ProjectsGallery: React.FC = () => {
       <div className="gallery-container">
         <div className="gallery-slider">
           <div className="slider-wrapper">
-            {projects.map((project, index) => (
-              <div
-                key={project.id}
-                className={`gallery-item ${
-                  index >= currentIndex && index < currentIndex + itemsPerView
-                    ? 'visible'
-                    : 'hidden'
-                }`}
-              >
-                <img src={project.url} alt={project.alt} />
-              </div>
-            ))}
+            {projects.map((project, index) => {
+              const titleIndex = index % projectTitles.length
+              return (
+                <div
+                  key={project.id}
+                  className={`gallery-item ${
+                    index >= currentIndex && index < currentIndex + itemsPerView
+                      ? 'visible'
+                      : 'hidden'
+                  }`}
+                >
+                  <img src={project.url} alt={project.alt} />
+                  <div className="gallery-item-overlay">
+                    <h3>{pickText(lang, projectTitles[titleIndex])}</h3>
+                    <p>{project.alt}</p>
+                  </div>
+                </div>
+              )
+            })}
           </div>
 
           <button

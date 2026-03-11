@@ -26,7 +26,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.projects.commercial': 'Commercial Projects',
     'nav.menu': 'Navigation menu',
     
-    'hero.title': 'Engineering Precision Unseen',
+    'hero.title': 'Crafting Climate Perfection',
     'hero.subtitle': 'Advanced climate control and heating solutions with engineering precision and high-end style',
     'hero.pause': 'Pause gallery',
     'hero.play': 'Play gallery',
@@ -91,7 +91,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.projects.commercial': 'פרויקטים מסחריים',
     'nav.menu': 'תפריט ניווט',
     
-    'hero.title': 'הנדסת אקלים לא נראית',
+    'hero.title': 'יוצרים שלמות אקלימית',
     'hero.subtitle': 'פתרונות תكييف וחימום מתקדמות עם דיוק הנדסי וסגנון פאר',
     'hero.pause': 'עצור גלרייה',
     'hero.play': 'הפעל גלרייה',
@@ -156,7 +156,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.projects.commercial': 'المشاريع التجارية',
     'nav.menu': 'قائمة التنقل',
     
-    'hero.title': 'هندسة المناخ غير المرئية',
+    'hero.title': 'صناعة الكمال المناخي',
     'hero.subtitle': 'حلول تكييف وتدفئة متقدمة بدقة هندسية وأسلوب فاخر',
     'hero.pause': 'إيقاف المعرض',
     'hero.play': 'تشغيل المعرض',

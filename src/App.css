@@ -1,12 +1,22 @@
+:root {
+  --color-primary: rgb(0, 0, 0);
+  --color-secondary: rgb(102, 102, 102);
+  --color-accent: rgb(184, 134, 11);
+  --color-white: rgb(255, 255, 255);
+  --color-dark: rgb(26, 26, 26);
+  --color-text: rgb(0, 0, 0);
+  --color-muted: rgb(102, 102, 102);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
 .homepage {
   width: 100%;
   max-width: 100%;
   position: relative;
   overflow-x: clip;
-  background:
-    radial-gradient(circle at 12% 10%, rgba(0, 170, 185, 0.09), transparent 34%),
-    radial-gradient(circle at 88% 74%, rgba(0, 138, 150, 0.08), transparent 30%),
-    #ffffff;
+  background: rgb(255, 255, 255);
 }
 
 .homepage > section {
@@ -18,13 +28,4 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-}
-
-@media (max-width: 768px) {
-  .homepage {
-    background:
-      radial-gradient(circle at 8% 8%, rgba(0, 170, 185, 0.08), transparent 34%),
-      radial-gradient(circle at 92% 84%, rgba(0, 138, 150, 0.07), transparent 36%),
-      #ffffff;
-  }
 }

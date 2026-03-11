@@ -11,29 +11,76 @@ export default function PublicProjectsCommercial() {
   return (
     <main className="public-page">
       <div className="public-shell">
-        <section className="public-hero">
-          <span className="public-chip">Commercial</span>
-          <h1 className="public-title">{pickText(lang, {
-            en: 'Commercial Projects',
-            he: 'פרויקטים מסחריים',
-            ar: 'مشاريع تجارية',
-          })}</h1>
-          <p className="public-lead">{pickText(lang, {
-            en: 'Engineered HVAC systems for offices, retail, and mixed-use spaces with predictable performance.',
-            he: 'מערכות מיזוג הנדסיות למשרדים, מסחר ומתחמים משולבים עם ביצועים צפויים.',
-            ar: 'أنظمة تكييف هندسية للمكاتب والتجزئة والمساحات المختلطة بأداء متوقع.',
-          })}</p>
-          <div className="public-actions">
-            <Link className="public-btn public-btn-primary" to="/contact">Discuss a Commercial Project</Link>
-            <Link className="public-btn public-btn-muted" to="/projects/private">See Private</Link>
-          </div>
+        <section className="about-hero">
+          <h1 className="about-hero-title">
+            {pickText(lang, {
+              en: 'Our Projects',
+              he: 'הפרויקטים שלנו',
+              ar: 'مشاريعنا',
+            })}
+          </h1>
         </section>
 
-        <section className="public-section">
-          <div className="public-grid">
-            <article className="public-card"><h3>Planning</h3><p>Load studies, zoning, and equipment selection.</p></article>
-            <article className="public-card"><h3>Execution</h3><p>Disciplined installation and site coordination.</p></article>
-            <article className="public-card"><h3>Handover</h3><p>Testing, balancing, and post-delivery support.</p></article>
+        <div className="about-project-tabs">
+          <Link to="/projects/private" className="project-tab-link">
+            {pickText(lang, { en: 'Private Projects', he: 'פרויקטים פרטיים', ar: 'مشاريع خاصة' })}
+          </Link>
+          <Link to="/projects/commercial" className="project-tab-link active">
+            {pickText(lang, { en: 'Commercial Projects', he: 'פרויקטים מסחריים', ar: 'مشاريع تجارية' })}
+          </Link>
+        </div>
+
+        <section className="projects-intro">
+          <p>
+            {pickText(lang, {
+              en: "Sahuri Brothers is bringing a breath of fresh air to the AC world through hundreds of public projects across Israel.",
+              he: "אחים סהורי מביאים נשימה של אוויר צח לעולם המיזוג באמצעות מאות פרויקטים ציבוריים ברחבי ישראל.",
+              ar: "تجلب شركة إخوة سهوري نسمة من الهواء النقي إلى عالم التكييف من خلال مئات المشاريع العامة في جميع أنحاء إسرائيل."
+            })}
+          </p>
+          <p>
+            {pickText(lang, {
+              en: "Specializing in HVAC design and installation for luxury homes and public institutions, Sahuri Brothers is never satisfied with simply providing its customers with various air conditioners. The company's knowledge, professionalism, experience, and constant pursuit of excellence ensure that its teams design and install the finest, top-quality HVAC systems that not only meet all requirements but also surpass every expectation.",
+              he: "אחים סהורי מתמחים בתכנון והתקנה של מערכות HVAC לבתים יוקרתיים ומוסדות ציבוריים, ואינם מסתפקים רק באספקת מזגנים שונים ללקוחותיהם. הידע, המקצועיות, הניסיון והשאיפה המתמדת למצוינות של החברה מבטיחים שהצוותים שלה מתכננים ומתקינים את מערכות ה-HVAC המשובחות והאיכותיות ביותר שלא רק עומדות בכל הדרישות אלא גם עולות על כל ציפייה.",
+              ar: "متخصصون في تصميم وتركيب أنظمة HVAC للمنازل الفاخرة والمؤسسات العامة، لا تكتفي شركة إخوة سهوري بتوفير مكيفات الهواء المختلفة لعملائها. إن معرفة الشركة واحترافيتها وخبرتها وسعيها المستمر نحو التميز تضمن أن فرقها تصمم وتركب أفضل أنظمة HVAC عالية الجودة التي لا تلبي جميع المتطلبات فحسب، بل تتجاوز كل التوقعات أيضًا."
+            })}
+          </p>
+          <p>
+            {pickText(lang, {
+              en: "By consistently striving for greater heights of professionalism, innovation, and reliability, while complying with the highest quality standards, we have successfully planned and performed hundreds of complex projects all over Israel for our many clients in the commercial market, including: government ministries, banks, and leading corporations.",
+              he: "על ידי שאיפה מתמדת לגבהים גדולים יותר של מקצועיות, חדשנות ואמינות, תוך ציות לסטנדרטים האיכותיים הגבוהים ביותר, תכננו וביצענו בהצלחה מאות פרויקטים מורכבים בכל רחבי ישראל עבור לקוחותינו הרבים בשוק המסחרי, כולל: משרדי ממשלה, בנקים ותאגידים מובילים.",
+              ar: "من خلال السعي المستمر نحو مستويات أعلى من الاحترافية والابتكار والموثوقية، مع الامتثال لأعلى معايير الجودة، نجحنا في تخطيط وتنفيذ مئات المشاريع المعقدة في جميع أنحاء إسرائيل للعديد من عملائنا في السوق التجاري، بما في ذلك: الوزارات الحكومية والبنوك والشركات الرائدة."
+            })}
+          </p>
+          <p className="projects-tagline">
+            {pickText(lang, {
+              en: "We ensure that every AC project is a breeze.",
+              he: "אנו מבטיחים שכל פרויקט מיזוג יהיה קל כמו משב רוח.",
+              ar: "نحن نضمن أن كل مشروع تكييف هو نسيم."
+            })}
+          </p>
+        </section>
+
+        <section className="projects-grid-section">
+          <div className="projects-grid">
+            <div className="project-grid-item">
+              <img src="/0126sahuri-03.jpg" alt="Commercial project 1" />
+            </div>
+            <div className="project-grid-item">
+              <img src="/0126sahuri-04.jpg" alt="Commercial project 2" />
+            </div>
+            <div className="project-grid-item">
+              <img src="/0126sahuri-01.jpg" alt="Commercial project 3" />
+            </div>
+            <div className="project-grid-item">
+              <img src="/0126sahuri-02.jpg" alt="Commercial project 4" />
+            </div>
+            <div className="project-grid-item">
+              <img src="/0126sahuri-03.jpg" alt="Commercial project 5" />
+            </div>
+            <div className="project-grid-item">
+              <img src="/0126sahuri-04.jpg" alt="Commercial project 6" />
+            </div>
           </div>
         </section>
       </div>

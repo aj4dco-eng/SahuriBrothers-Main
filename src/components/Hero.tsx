@@ -14,11 +14,10 @@ const Hero: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(true)
 
   const heroImages: HeroImage[] = [
-    { id: 1, url: '/0126sahuri-01.jpg', alt: `${t('hero.slide')} 1` },
-    { id: 2, url: '/0126sahuri-02.jpg', alt: `${t('hero.slide')} 2` },
-    { id: 3, url: '/0126sahuri-03.jpg', alt: `${t('hero.slide')} 3` },
-    { id: 4, url: '/0126sahuri-04.jpg', alt: `${t('hero.slide')} 4` },
-    { id: 5, url: '/logo-05.png', alt: `${t('hero.slide')} 5` },
+    { id: 1, url: '/0126sahuri-03.jpg', alt: `${t('hero.slide')} 1` },
+    { id: 2, url: '/0126sahuri-01.jpg', alt: `${t('hero.slide')} 2` },
+    { id: 3, url: '/0126sahuri-04.jpg', alt: `${t('hero.slide')} 3` },
+    { id: 4, url: '/0126sahuri-02.jpg', alt: `${t('hero.slide')} 4` },
   ]
 
   useEffect(() => {
@@ -40,6 +39,14 @@ const Hero: React.FC = () => {
     element?.scrollIntoView({ behavior: 'smooth' })
   }
 
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % heroImages.length)
+  }
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + heroImages.length) % heroImages.length)
+  }
+
   return (
     <section className="hero-gallery">
       <div className="gallery-slider">
@@ -57,10 +64,6 @@ const Hero: React.FC = () => {
               role="img"
             />
             <div className="opacity-layer" />
-            <div className="hero-overlay-text">
-              <h1>{t('hero.title')}</h1>
-              <p>{t('hero.subtitle')}</p>
-            </div>
           </div>
         ))}
       </div>
@@ -71,6 +74,26 @@ const Hero: React.FC = () => {
         aria-label={isPlaying ? t('hero.pause') : t('hero.play')}
         aria-pressed={isPlaying}
       />
+
+      <button
+        className="hero-nav-arrow prev"
+        onClick={prevSlide}
+        aria-label={t('hero.previous') || 'Previous slide'}
+      >
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+        </svg>
+      </button>
+
+      <button
+        className="hero-nav-arrow next"
+        onClick={nextSlide}
+        aria-label={t('hero.next') || 'Next slide'}
+      >
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+        </svg>
+      </button>
 
       <div className="slide-indicators">
         {heroImages.map((_, index) => (

@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react'
+﻿import React, { useState, useEffect } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import './Header.css'
 import LanguageSwitcher from './LanguageSwitcher'
@@ -10,10 +10,19 @@ import { pickText, toUiLanguage } from '../lib/localized'
 const Header: React.FC = () => {
   const { t, language } = useLanguage()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
   const { isAdmin } = useRole()
   const { user, signOut } = useAuth()
   const location = useLocation()
   const lang = toUiLanguage(language)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev)
@@ -23,11 +32,11 @@ const Header: React.FC = () => {
     isActive ? 'nav-link active' : 'nav-link'
 
   return (
-    <header className="site-header">
+    <header className={`site-header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="header-container">
         <div className="header-left">
           <Link to="/" className="logo" onClick={() => setIsMenuOpen(false)}>
-            <img src="/logo-05.png" alt="Sahuri Bros" className="logo-image" />
+            <img src="/logo.png" alt="Sahuri Bros" className="logo-image" />
           </Link>
         </div>
 
@@ -58,7 +67,6 @@ const Header: React.FC = () => {
                   </ul>
                 </li>
                 <li><NavLink className={navClassName} to="/services" onClick={() => setIsMenuOpen(false)}>{t('nav.services')}</NavLink></li>
-                <li><NavLink className={navClassName} to="/team" onClick={() => setIsMenuOpen(false)}>{t('nav.team')}</NavLink></li>
                 <li><NavLink className={navClassName} to="/contact" onClick={() => setIsMenuOpen(false)}>{t('nav.contact')}</NavLink></li>
               </>
             )}
@@ -109,14 +117,6 @@ const Header: React.FC = () => {
             <span></span>
           </button>
         </div>
-      </div>
-
-      <div className="whatsapp-button">
-        <a href="https://api.whatsapp.com/send?phone=972545666136" target="_blank" rel="noopener noreferrer" title="WhatsApp">
-          <svg viewBox="0 0 24 24" width="24" height="24" fill="white">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.773 1.149l-.334-.167-3.471.522.531-3.407-.223-.354a9.86 9.86 0 011.51-4.169c2.416-2.843 6.4-3.736 9.906-2.181 3.507 1.555 5.887 5.138 5.887 9.201 0 5.487-4.144 9.944-9.529 9.944z" />
-          </svg>
-        </a>
       </div>
     </header>
   )

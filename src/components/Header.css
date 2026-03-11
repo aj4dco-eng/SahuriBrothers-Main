@@ -16,13 +16,21 @@
   font-weight: 500;
 }
 .site-header {
-  background: linear-gradient(180deg, #ffffff, #fbfcff);
+  background: transparent;
+  backdrop-filter: blur(10px);
   padding: 1rem 0;
-  box-shadow: var(--shadow-sm);
-  position: sticky;
+  box-shadow: none;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
-  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.site-header.scrolled {
+  background: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .header-container {
@@ -84,35 +92,38 @@
 .nav-menu li a,
 .nav-link {
   position: relative;
-  color: var(--text);
-  font-weight: 700;
-  transition: color 0.18s ease;
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+  font-family: 'Source Sans Pro', sans-serif;
+  transition: color 0.3s ease;
   padding: 0.5rem 0;
+  text-decoration: none;
 }
 
 .nav-menu li a::after,
 .nav-link::after {
   content: "";
   position: absolute;
-  inset-inline-start: 0;
-  bottom: 0;
-  width: 0;
+  left: 0;
+  right: 0;
+  bottom: -2px;
   height: 2px;
-  border-radius: 2px;
-  background: #01aab9;
-  transition: width 180ms ease;
+  background: rgb(255, 255, 255);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
 }
 
 .nav-menu li a:hover,
 .nav-link:hover,
 .nav-link.active {
-  color: #01aab9;
+  color: rgb(255, 255, 255);
 }
 
 .nav-menu li a:hover::after,
 .nav-link:hover::after,
 .nav-link.active::after {
-  width: 100%;
+  transform: scaleX(1);
 }
 
 .nav-menu .dropdown {
@@ -123,16 +134,16 @@
   position: absolute;
   top: 100%;
   right: 0;
-  background: var(--surface);
-  border: 1px solid rgba(15, 23, 42, 0.09);
-  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
   min-width: 220px;
   list-style: none;
   opacity: 0;
   visibility: hidden;
   transform: translateY(-8px);
-  transition: all 0.2s ease;
-  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 html[dir="ltr"] .submenu {
@@ -153,13 +164,13 @@ html[dir="ltr"] .submenu {
 .submenu a {
   display: block;
   padding: 0.75rem 1.5rem;
-  color: #333;
-  transition: color 0.3s ease;
+  color: rgb(255, 255, 255);
+  transition: all 0.3s ease;
 }
 
 .submenu a:hover {
-  color: #01aab9;
-  background-color: #f8fafc;
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .header-right {
@@ -201,7 +212,8 @@ html[dir="ltr"] .contact-info {
 
 .phone {
   font-weight: 700;
-  color: #01aab9;
+  color: rgb(255, 255, 255);
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 .lang-link {
@@ -222,12 +234,12 @@ html[dir="ltr"] .contact-info {
 .social-icon {
   width: 24px;
   height: 24px;
-  color: var(--muted);
-  transition: color 0.18s ease;
+  color: rgba(255, 255, 255, 0.8);
+  transition: color 0.3s ease;
 }
 
 .social-icons a:hover .social-icon {
-  color: #01aab9;
+  color: rgb(255, 255, 255);
 }
 
 .menu-toggle {
@@ -240,40 +252,54 @@ html[dir="ltr"] .contact-info {
 .menu-toggle span {
   width: 25px;
   height: 3px;
-  background: #151519;
+  background: rgb(255, 255, 255);
   border-radius: 2px;
-  transition: all 0.18s ease;
+  transition: all 0.3s ease;
 }
 
 .whatsapp-button {
   position: fixed;
   bottom: 2rem;
-  right: 2rem;
-  width: 60px;
-  height: 60px;
-  background: #25d366;
+  left: 2rem;
+  width: 64px;
+  height: 64px;
+  background: transparent;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 50;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
+  z-index: 1000;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
 }
 
-html[dir="ltr"] .whatsapp-button {
-  right: auto;
-  left: 2rem;
+html[dir="rtl"] .whatsapp-button {
+  left: auto;
+  right: 2rem;
 }
 
 .whatsapp-button:hover {
-  transform: scale(1.1);
+  transform: translateY(-4px) scale(1.05);
+}
+
+.whatsapp-button:active {
+  transform: translateY(-2px) scale(1.02);
 }
 
 .whatsapp-button a {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+}
+
+.whatsapp-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
 }
 
 @media (max-width: 1024px) {

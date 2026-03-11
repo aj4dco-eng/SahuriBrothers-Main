@@ -11,18 +11,14 @@ export default function Contact() {
   return (
     <main className="public-page">
       <div className="public-shell">
-        <section className="public-hero">
-          <span className="public-chip">Contact</span>
-          <h1 className="public-title">{pickText(lang, {
-            en: 'Contact Us',
-            he: 'צור קשר',
-            ar: 'اتصل بنا',
-          })}</h1>
-          <p className="public-lead">{pickText(lang, {
-            en: 'Send us your project details and we will get back with a practical plan.',
-            he: 'שלחו לנו פרטי פרויקט ונחזור אליכם עם תכנית מעשית.',
-            ar: 'أرسل تفاصيل مشروعك وسنعود إليك بخطة عملية.',
-          })}</p>
+        <section className="about-hero">
+          <h1 className="about-hero-title">
+            {pickText(lang, {
+              en: 'Contact Us',
+              he: 'צור קשר',
+              ar: 'اتصل بنا',
+            })}
+          </h1>
         </section>
 
         <section className="public-section public-split">
