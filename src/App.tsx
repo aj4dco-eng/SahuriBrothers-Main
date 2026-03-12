@@ -1,7 +1,8 @@
 ﻿import './App.css'
 import './rtl-support.css'
 import './pages/PublicPages.css'
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import { LanguageProvider } from './context/LanguageContext'
 import { RoleProvider } from './context/RoleContext'
 import { AuthProvider } from './context/AuthContext'
@@ -13,7 +14,6 @@ import VideoSection from './components/VideoSection'
 import ClientsCarousel from './components/ClientsCarousel'
 import ContactForm from './components/ContactForm'
 import Footer from './components/Footer'
-import LoadingAnimation from './components/LoadingAnimation'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import About from './pages/About'
 import Contact from './pages/Contact'
@@ -23,27 +23,27 @@ import PublicProjectsCommercial from './pages/PublicProjectsCommercial'
 import PublicServices from './pages/PublicServices'
 import AccessibilityDeclaration from './pages/AccessibilityDeclaration'
 
-function App() {
-  const [showLoading, setShowLoading] = useState(true)
+function ScrollToTop() {
+  const { pathname } = useLocation()
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowLoading(false)
-    }, 3300)
+    window.scrollTo(0, 0)
+  }, [pathname])
 
-    return () => clearTimeout(timer)
-  }, [])
+  return null
+}
 
+function App() {
   return (
     <LanguageProvider>
       <RoleProvider>
         <AuthProvider>
-          {showLoading && <LoadingAnimation />}
           <BrowserRouter>
+            <ScrollToTop />
             <Header />
             <div className="whatsapp-button">
               <a href="https://api.whatsapp.com/send?phone=972545666136" target="_blank" rel="noopener noreferrer" title="WhatsApp">
-                <img src="/WhatsappIcon.png" alt="WhatsApp" />
+                <img src="/what.svg" alt="WhatsApp" />
               </a>
             </div>
             <Routes>

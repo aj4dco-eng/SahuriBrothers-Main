@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './ClientsCarousel.css'
 import { useLanguage } from '../context/LanguageContext'
 
@@ -10,7 +10,6 @@ interface Client {
 
 const ClientsCarousel: React.FC = () => {
   const { t } = useLanguage()
-  const [currentIndex, setCurrentIndex] = useState(0)
 
   const clients: Client[] = [
     { id: 1, name: 'Sahuri', url: '/logo.png' },
@@ -26,16 +25,8 @@ const ClientsCarousel: React.FC = () => {
     { id: 11, name: 'Sahuri', url: '/logo.png' },
   ]
 
-  const itemsPerView = 6
-  const maxStart = Math.max(0, clients.length - itemsPerView)
-
-  const handlePrev = () => {
-    setCurrentIndex((prev) => Math.max(0, prev - 1))
-  }
-
-  const handleNext = () => {
-    setCurrentIndex((prev) => Math.min(maxStart, prev + 1))
-  }
+  // Duplicate clients for seamless loop
+  const duplicatedClients = [...clients, ...clients]
 
   return (
     <section className="section clients-section">
@@ -45,35 +36,16 @@ const ClientsCarousel: React.FC = () => {
       </div>
 
       <div className="clients-carousel">
-        <div className="carousel-wrapper">
-          {clients.map((client, index) => (
+        <div className="carousel-track">
+          {duplicatedClients.map((client, index) => (
             <div
-              key={client.id}
-              className={`client-item ${
-                index >= currentIndex && index < currentIndex + itemsPerView
-                  ? 'visible'
-                  : 'hidden'
-              }`}
+              key={`${client.id}-${index}`}
+              className="client-item"
             >
               <img src={client.url} alt={client.name} title={client.name} />
             </div>
           ))}
         </div>
-
-        <button
-          className="carousel-nav prev"
-          onClick={handlePrev}
-          aria-label="הקודם"
-        >
-          ›
-        </button>
-        <button
-          className="carousel-nav next"
-          onClick={handleNext}
-          aria-label="הבא"
-        >
-          ‹
-        </button>
       </div>
     </section>
   )

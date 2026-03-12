@@ -1,0 +1,61 @@
+.scroll-animate {
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-animate.animate-visible {
+  opacity: 1;
+}
+
+/* Fade Up Animation */
+.scroll-fadeUp {
+  transform: translateY(40px);
+}
+
+.scroll-fadeUp.animate-visible {
+  transform: translateY(0);
+}
+
+/* Fade In Animation */
+.scroll-fadeIn {
+  opacity: 0;
+}
+
+.scroll-fadeIn.animate-visible {
+  opacity: 1;
+}
+
+/* Slide Left Animation */
+.scroll-slideLeft {
+  transform: translateX(60px);
+}
+
+.scroll-slideLeft.animate-visible {
+  transform: translateX(0);
+}
+
+/* Slide Right Animation */
+.scroll-slideRight {
+  transform: translateX(-60px);
+}
+
+.scroll-slideRight.animate-visible {
+  transform: translateX(0);
+}
+
+/* Scale Up Animation */
+.scroll-scaleUp {
+  transform: scale(0.9);
+}
+
+.scroll-scaleUp.animate-visible {
+  transform: scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-animate {
+    opacity: 1;
+    transform: none !important;
+    transition: none;
+  }
+}

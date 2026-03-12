@@ -38,8 +38,8 @@ const translations: Record<Language, Record<string, string>> = {
     'plan.precision.desc2': 'Glass ceilings with no wall space? Pipes hidden in moldings? Units concealed in cabinets with high ceilings without damage? That\'s what we do every day.',
     'plan.precision.link': 'Learn about our planning process',
     
-    'plan.family': 'Family Service - Sahuri Bros. Guarantee',
-    'plan.family.desc': 'Working with a corporate company, you get a project manager. Working with Sahuri Bros, you get the brothers themselves - people personally responsible for every project. Our name is on every job.',
+    'plan.family': 'Family Service - Sahuri Brothers Guarantee',
+    'plan.family.desc': 'Working with a corporate company, you get a project manager. Working with Sahuri Brothers, you get the brothers themselves - people personally responsible for every project. Our name is on every job.',
     'plan.family.link': 'Discover our guarantee',
     
     'services.title': 'Our Services',
@@ -64,7 +64,7 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.error': 'Error sending message',
     
     'footer.rights': 'All rights reserved',
-    'footer.company': 'Sahuri Bros - Climate & Biotech Engineers',
+    'footer.company': 'Sahuri Brothers - Climate & Biotech Engineers',
     'footer.accessibility': 'Accessibility Declaration',
     'footer.design': 'Design and Development: ',
     
@@ -74,7 +74,7 @@ const translations: Record<Language, Record<string, string>> = {
     'gallery.subtitle': 'Examples of engineering precision hidden in design',
     'video.title': 'Engineering Foundations for Luxurious Living',
     'video.subtitle': 'Biotechnology Interface and Design',
-    'video.desc1': 'In the homes of people who appreciate the finer things in life, a climate system should be invisible until you need it. Sahuri Bros specializes in integrating advanced VRF systems with architectural subtlety - embedding ducts in ceilings, JET grilles for minimalist distribution, and underfloor heating that disappears during autumn months.',
+    'video.desc1': 'In the homes of people who appreciate the finer things in life, a climate system should be invisible until you need it. Sahuri Brothers specializes in integrating advanced VRF systems with architectural subtlety - embedding ducts in ceilings, JET grilles for minimalist distribution, and underfloor heating that disappears during autumn months.',
     'video.desc2': 'In a private home in Qadima, the designer\'s requirements to eliminate all mechanics prevented standard solutions. Our solution: VRF system with concealed ducts embedded in floor thickness, microscopic linear grilles, and supervised installation that eliminated all technical evidence.',
   },
   he: {
@@ -103,8 +103,8 @@ const translations: Record<Language, Record<string, string>> = {
     'plan.precision.desc2': 'תקרה זכוכית עם ללא מרחב קיר? סקוקי נחבאים בעריסות? יחידות שנחבאות בתוך ארונות עם תקרות גבוהות ללא פגיעה? זה מה שאנחנו עושים כל יום.',
     'plan.precision.link': 'למידע על תהליך התכנון',
     
-    'plan.family': 'שירות משפחתי - Sahuri Bros. Guarantee',
-    'plan.family.desc': 'בעבודה עם חברה מוסדית, אתה מקבל מנהל פרויקט. בעבודה עם Sahuri Bros, אתה מקבל את האחים עצמם - אנשים שהם אחראיים אישית על כל פרויקט. השם שלנו נמצא על כל עבודה.',
+    'plan.family': 'שירות משפחתי - Sahuri Brothers. Guarantee',
+    'plan.family.desc': 'בעבודה עם חברה מוסדית, אתה מקבל מנהל פרויקט. בעבודה עם Sahuri Brothers, אתה מקבל את האחים עצמם - אנשים שהם אחראיים אישית על כל פרויקט. השם שלנו נמצא על כל עבודה.',
     'plan.family.link': 'גלה את הערבות שלנו',
     
     'services.title': 'שירותינו',
@@ -139,7 +139,7 @@ const translations: Record<Language, Record<string, string>> = {
     'gallery.subtitle': 'דוגמאות של דיוק הנדסי השקוע בעיצוב',
     'video.title': 'הנחות הנדסיות עבור חיים יוקרתיים',
     'video.subtitle': 'ממשקת ביוטכנולוגיה ועיצוב',
-    'video.desc1': 'בבתיהם של אנשים שמעריכים את הדברים הטובים בחיים, מערכת האקלים צריכה להיות בלתי נראית עד שאתה זקוק לה. Sahuri Bros מתמחה בהטמעת מערכות VRF מתקדמות עם עדינות אדריכלית - שילוב מכיפים בתקרות, גרילים JET לתפזורת מינימליסטית, וחימום תת-רצפה שמתחזה במהלך חודשי הסתיו.',
+    'video.desc1': 'בבתיהם של אנשים שמעריכים את הדברים הטובים בחיים, מערכת האקלים צריכה להיות בלתי נראית עד שאתה זקוק לה. Sahuri Brothers מתמחה בהטמעת מערכות VRF מתקדמות עם עדינות אדריכלית - שילוב מכיפים בתקרות, גרילים JET לתפזורת מינימליסטית, וחימום תת-רצפה שמתחזה במהלך חודשי הסתיו.',
     'video.desc2': 'בבית פנימי בקדום, דרישות המעצב להעלמת כל המכניקה מנעה שימוש בפתרונות סטנדרטיים. הפתרון שלנו: מערכת VRF עם תעלות חבוא בעובי הרצפה, גרילים לינארים מיקרוסקופיים, והתקנה מפוקחת שהעלימה כל עדות טכנית.',
   },
   ar: {
@@ -204,7 +204,7 @@ const translations: Record<Language, Record<string, string>> = {
     'gallery.subtitle': 'أمثلة على الدقة الهندسية المخفية في التصميم',
     'video.title': 'الأسس الهندسية للعيش الفاخر',
     'video.subtitle': 'واجهة التكنولوجيا الحيوية والتصميم',
-    'video.desc1': 'في منازل الأشخاص الذين يقدرون أفضل ما في الحياة، يجب أن يكون نظام المناخ غير مرئي حتى تحتاج إليه. يتخصص Sahuri Bros في دمج أنظمة VRF المتقدمة بدقة معمارية - حشر القنوات في الأسقف، شبكات JET للتوزيع الحد الأدنى، والتدفئة الأرضية التي تختفي خلال أشهر الخريف.',
+    'video.desc1': 'في منازل الأشخاص الذين يقدرون أفضل ما في الحياة، يجب أن يكون نظام المناخ غير مرئي حتى تحتاج إليه. يتخصص Sahuri Brothers في دمج أنظمة VRF المتقدمة بدقة معمارية - حشر القنوات في الأسقف، شبكات JET للتوزيع الحد الأدنى، والتدفئة الأرضية التي تختفي خلال أشهر الخريف.',
     'video.desc2': 'في منزل خاص بقادومة، منعت متطلبات المصمم لإزالة جميع الميكانيكا استخدام الحلول القياسية. حلنا: نظام VRF مع قنوات مخفية مدمجة بسمك الأرضية، شبكات خطية مجهرية، وتثبيت تم الإشراف عليه أزال كل دليل تقني.',
   },
 }
@@ -218,6 +218,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   useEffect(() => {
     localStorage.setItem('language', language)
     document.documentElement.lang = language
+    document.documentElement.setAttribute('lang', language)
     document.documentElement.dir = language === 'ar' || language === 'he' ? 'rtl' : 'ltr'
   }, [language])
 

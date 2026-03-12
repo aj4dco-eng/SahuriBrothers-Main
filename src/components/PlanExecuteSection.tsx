@@ -61,7 +61,7 @@ const PlanExecuteSection: React.FC = () => {
                 <h2>{t('plan.family')}</h2>
                 <p>{t('plan.family.desc')}</p>
                 <p>{familyDescExtra}</p>
-                <Link to="/team" className="read-more-btn">
+                <Link to="/about" className="read-more-btn">
                   {meetTeamLabel}
                 </Link>
               </div>
