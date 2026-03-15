@@ -295,7 +295,7 @@
 
 @media (max-width: 680px) {
   .public-page {
-    padding-top: 1rem;
+    padding-top: 4.75rem;
   }
 
   .public-shell {
@@ -1305,8 +1305,38 @@
 }
 
 @media (max-width: 768px) {
+  .about-page,
+  .services-page {
+    overflow-x: hidden;
+  }
+
+  .about-page .public-shell,
+  .services-page .public-shell {
+    width: calc(100% - 1rem);
+  }
+
   .projects-grid {
     grid-template-columns: 1fr;
+  }
+
+  .about-page .about-hero,
+  .services-page .about-hero {
+    padding: 5rem 1rem 2rem;
+  }
+
+  .about-page .about-hero-title,
+  .services-page .about-hero-title {
+    font-size: clamp(2rem, 9vw, 2.6rem);
+    line-height: 1.1;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .about-page .about-service-section,
+  .services-page .services-grid-wrapper,
+  .services-page .services-why-section,
+  .services-page .services-cta-section {
+    max-width: 100%;
   }
 
   .contact-info-items {
@@ -1377,6 +1407,16 @@
 }
 
 @media (max-width: 480px) {
+  .about-page .about-hero,
+  .services-page .about-hero {
+    padding: 4.5rem 0.85rem 1.5rem;
+  }
+
+  .about-page .about-hero-title,
+  .services-page .about-hero-title {
+    font-size: clamp(1.8rem, 10vw, 2.2rem);
+  }
+
   .contact-content-wrapper {
     gap: 2rem;
     margin: 2rem auto;
