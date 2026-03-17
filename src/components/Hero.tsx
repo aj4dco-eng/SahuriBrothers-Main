@@ -14,10 +14,10 @@ const Hero: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(true)
 
   const heroImages: HeroImage[] = [
-    { id: 1, url: '/0126sahuri-03.jpg', alt: `${t('hero.slide')} 1` },
-    { id: 2, url: '/0126sahuri-01.jpg', alt: `${t('hero.slide')} 2` },
-    { id: 3, url: '/0126sahuri-04.jpg', alt: `${t('hero.slide')} 3` },
-    { id: 4, url: '/0126sahuri-02.jpg', alt: `${t('hero.slide')} 4` },
+    { id: 1, url: '/video-01.jpg', alt: `${t('hero.slide')} 1` },
+    { id: 2, url: '/video-02.jpg', alt: `${t('hero.slide')} 2` },
+    { id: 3, url: '/video-03.jpg', alt: `${t('hero.slide')} 3` },
+    { id: 4, url: '/video-04.jpg', alt: `${t('hero.slide')} 4` },
   ]
 
   useEffect(() => {

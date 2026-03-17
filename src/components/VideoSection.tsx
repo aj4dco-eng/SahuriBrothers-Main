@@ -7,7 +7,6 @@ const PREFERRED_VIDEO_IMAGES = [
   '/video-02.jpg',
   '/video-03.jpg',
   '/video-04.jpg',
-  '/video-05.jpg',
 ]
 
 const FALLBACK_VIDEO_IMAGES = [
