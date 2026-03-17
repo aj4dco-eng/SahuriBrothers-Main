@@ -14,7 +14,6 @@
 
 html {
   direction: rtl;
-  lang: he;
 }
 
 html[dir="ltr"] {
@@ -30,25 +29,33 @@ body {
   background-color: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
   line-height: 1.6;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 /* Language-specific fonts */
 html[lang="en"] body,
-html[lang="en"] * {
+html[lang="en"] button,
+html[lang="en"] input,
+html[lang="en"] textarea,
+html[lang="en"] select {
   font-family: 'Roboto', sans-serif;
-  direction: ltr;
 }
 
 html[lang="ar"] body,
-html[lang="ar"] * {
+html[lang="ar"] button,
+html[lang="ar"] input,
+html[lang="ar"] textarea,
+html[lang="ar"] select {
   font-family: 'Cairo', sans-serif;
-  direction: rtl;
 }
 
 html[lang="he"] body,
-html[lang="he"] * {
+html[lang="he"] button,
+html[lang="he"] input,
+html[lang="he"] textarea,
+html[lang="he"] select {
   font-family: 'Gisha', 'Arial Hebrew', sans-serif;
-  direction: rtl;
 }
 
 a {

@@ -920,12 +920,17 @@
   align-items: start;
 }
 
+.contact-content-wrapper > * {
+  min-width: 0;
+}
+
 .contact-info-card {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.1);
   padding: clamp(2rem, 4vw, 3rem);
   position: sticky;
   top: 120px;
+  min-width: 0;
 }
 
 .contact-info-header {
@@ -959,6 +964,7 @@
   display: flex;
   align-items: flex-start;
   gap: 1.2rem;
+  min-width: 0;
 }
 
 .contact-info-icon {
@@ -975,6 +981,7 @@
 
 .contact-info-details {
   flex: 1;
+  min-width: 0;
 }
 
 .contact-info-details h3 {
@@ -999,6 +1006,33 @@
   text-decoration: none;
   transition: color 0.3s ease;
   display: inline-block;
+}
+
+.contact-page .about-intro-text,
+.contact-info-title,
+.contact-info-subtitle,
+.contact-info-details h3,
+.contact-info-details p,
+.contact-info-details a,
+.contact-info-footer p,
+.contact-form-wrapper {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.contact-form-wrapper {
+  min-width: 0;
+  max-width: 100%;
+}
+
+html[lang="ar"] .contact-info-item {
+  flex-direction: row-reverse;
+}
+
+html[lang="ar"] .contact-info-card,
+html[lang="ar"] .contact-info-details,
+html[lang="ar"] .contact-info-footer {
+  text-align: right;
 }
 
 .contact-info-details a:hover {

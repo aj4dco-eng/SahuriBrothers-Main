@@ -502,7 +502,7 @@ html[dir="rtl"] .whatsapp-button {
     align-items: center;
     margin-inline-start: auto;
     margin-inline-end: 0;
-    flex-direction: row-reverse;
+    flex-direction: row;
     background: transparent;
     padding: 0;
     border-radius: 0;
@@ -538,10 +538,7 @@ html[dir="rtl"] .whatsapp-button {
   .header-nav {
     position: absolute;
     top: calc(100% + 6px);
-    right: 0.5rem;
-    left: auto;
-    width: calc(100vw - 1rem);
-    max-width: 340px;
+    width: min(340px, calc(100vw - 1rem));
     background: #0b0b0b;
     flex-direction: column;
     margin: 0;
@@ -556,6 +553,16 @@ html[dir="rtl"] .whatsapp-button {
     backdrop-filter: blur(14px);
   }
 
+  html[dir="rtl"] .header-nav {
+    right: 0.5rem;
+    left: auto;
+  }
+
+  html[dir="ltr"] .header-nav {
+    left: 0.5rem;
+    right: auto;
+  }
+
   .header-nav.active {
     max-height: 75vh;
     overflow-y: auto;
@@ -566,11 +573,12 @@ html[dir="rtl"] .whatsapp-button {
   .mobile-menu-footer {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: stretch;
     gap: 0.7rem;
     padding: 0.85rem 0.95rem 1rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.04));
+    text-align: start;
   }
 
   .mobile-menu-phone {
@@ -587,7 +595,7 @@ html[dir="rtl"] .whatsapp-button {
     justify-content: space-between;
     gap: 0.65rem;
     width: 100%;
-    flex-direction: row-reverse;
+    flex-direction: row;
   }
 
   .mobile-menu-footer .lang-dropdown {
@@ -606,9 +614,17 @@ html[dir="rtl"] .whatsapp-button {
   }
 
   .mobile-menu-footer .lang-menu {
+    min-width: 110px;
+  }
+
+  html[dir="rtl"] .mobile-menu-footer .lang-menu {
     right: 0;
     left: auto;
-    min-width: 110px;
+  }
+
+  html[dir="ltr"] .mobile-menu-footer .lang-menu {
+    left: 0;
+    right: auto;
   }
 
   .mobile-menu-social {
@@ -643,7 +659,7 @@ html[dir="rtl"] .whatsapp-button {
 
   .nav-menu li {
     width: 100%;
-    text-align: right;
+    text-align: start;
   }
 
   .nav-menu li a,
@@ -654,7 +670,7 @@ html[dir="rtl"] .whatsapp-button {
     color: #ffffff;
     font-size: 0.96rem;
     font-weight: 600;
-    text-align: right;
+    text-align: start;
   }
 
   .nav-menu li a::after,
