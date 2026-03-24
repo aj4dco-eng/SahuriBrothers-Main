@@ -20,6 +20,18 @@ const PlanExecuteSection: React.FC = () => {
     ar: 'تعرف على فريقنا',
   })
 
+  const planningCtaNote = pickText(lang, {
+    en: 'See how we turn complex HVAC constraints into clean architectural solutions.',
+    he: 'ראו איך אנחנו הופכים אילוצי מיזוג מורכבים לפתרונות אדריכליים נקיים.',
+    ar: 'شاهد كيف نحول قيود التكييف المعقدة إلى حلول معمارية نظيفة.',
+  })
+
+  const teamCtaNote = pickText(lang, {
+    en: 'Get to know the people leading every project from planning to installation.',
+    he: 'הכירו את האנשים שמובילים כל פרויקט משלב התכנון ועד ההתקנה.',
+    ar: 'تعرف على الفريق الذي يقود كل مشروع من التخطيط وحتى التنفيذ.',
+  })
+
   const precisionAlt = pickText(lang, {
     en: 'Engineering precision',
     he: 'דיוק הנדסי',
@@ -45,8 +57,12 @@ const PlanExecuteSection: React.FC = () => {
                 <h2>{t('plan.precision')}</h2>
                 <p>{t('plan.precision.desc1')}</p>
                 <p>{t('plan.precision.desc2')}</p>
-                <Link to="/services" className="read-more-btn">
-                  {t('plan.precision.link')}
+                <Link to="/services" className="read-more-btn read-more-btn-primary">
+                  <span className="read-more-btn-copy" dir="auto">
+                    <span className="read-more-btn-label" dir="auto">{t('plan.precision.link')}</span>
+                    <span className="read-more-btn-note" dir="auto">{planningCtaNote}</span>
+                  </span>
+                  <span className="read-more-btn-icon" aria-hidden="true">→</span>
                 </Link>
               </div>
             </div>
@@ -61,8 +77,12 @@ const PlanExecuteSection: React.FC = () => {
                 <h2>{t('plan.family')}</h2>
                 <p>{t('plan.family.desc')}</p>
                 <p>{familyDescExtra}</p>
-                <Link to="/about" className="read-more-btn">
-                  {meetTeamLabel}
+                <Link to="/about" className="read-more-btn read-more-btn-secondary">
+                  <span className="read-more-btn-copy" dir="auto">
+                    <span className="read-more-btn-label" dir="auto">{meetTeamLabel}</span>
+                    <span className="read-more-btn-note" dir="auto">{teamCtaNote}</span>
+                  </span>
+                  <span className="read-more-btn-icon" aria-hidden="true">→</span>
                 </Link>
               </div>
             </div>

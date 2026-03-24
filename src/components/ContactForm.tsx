@@ -14,6 +14,7 @@ interface FormData {
 const ContactForm: React.FC = () => {
   const { t, language } = useLanguage()
   const lang = toUiLanguage(language)
+  const isRtl = lang === 'he' || lang === 'ar'
   const [formData, setFormData] = useState<FormData>({
     name: '',
     phone: '',
@@ -164,6 +165,7 @@ const ContactForm: React.FC = () => {
                     onChange={handleChange}
                     required
                     aria-label={t('contact.name')}
+                    dir={isRtl ? 'rtl' : 'ltr'}
                   />
                 </div>
 
@@ -176,6 +178,8 @@ const ContactForm: React.FC = () => {
                     onChange={handleChange}
                     required
                     aria-label={t('contact.phone')}
+                    dir={isRtl ? 'rtl' : 'ltr'}
+                    className={isRtl ? 'phone-input-rtl' : undefined}
                   />
                 </div>
 
@@ -188,6 +192,7 @@ const ContactForm: React.FC = () => {
                     onChange={handleChange}
                     required
                     aria-label={t('contact.email')}
+                    dir="ltr"
                   />
                 </div>
 
@@ -200,6 +205,7 @@ const ContactForm: React.FC = () => {
                     onChange={handleChange}
                     required
                     aria-label={t('contact.message')}
+                    dir={isRtl ? 'rtl' : 'ltr'}
                   />
                 </div>
 

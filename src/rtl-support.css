@@ -54,9 +54,9 @@ html[dir="ltr"] .pe {
 
 /* Common typography adjustments */
 html[dir="ltr"] body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--font-body);
 }
 
 html[dir="rtl"] body {
-  font-family: 'Segoe UI', 'Arial', Sans-serif, Tahoma, Geneva, Verdana;
+  font-family: var(--font-body);
 }

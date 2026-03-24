@@ -143,6 +143,9 @@
 
 .plan-execute-section .grid-row-text {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .plan-execute-section .grid-row-text h2 {
@@ -176,59 +179,112 @@
 }
 
 .plan-execute-section .read-more-btn {
-  display: inline-flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  width: fit-content;
-  margin-top: 1rem;
+  gap: 1rem;
+  width: min(100%, 34rem);
+  margin-top: 1.5rem;
   margin-left: 1rem;
-  padding: 1rem 2rem;
-  border-radius: 0;
-  border: 2px solid currentColor;
-  background: transparent;
+  padding: 1.1rem 1.1rem 1.1rem 1.4rem;
+  border-radius: 26px;
+  border: 1px solid currentColor;
+  background: rgba(255, 255, 255, 0.08);
   color: inherit;
-  font-weight: 600;
-  font-size: 1.05rem;
+  font-weight: 700;
+  font-size: 0.98rem;
   letter-spacing: 0.02em;
-  text-transform: uppercase;
-  box-shadow: none;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: none;
+  text-decoration: none;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.16);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .plan-execute-section .read-more-btn::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: currentColor;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: -1;
+  content: none;
 }
 
-.plan-execute-section .read-more-btn:hover::before {
-  transform: scaleX(1);
+.plan-execute-section .read-more-btn-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.plan-execute-section .read-more-btn-label {
+  line-height: 1.2;
+  font-size: 1rem;
+}
+
+.plan-execute-section .read-more-btn-note {
+  font-size: 0.84rem;
+  line-height: 1.45;
+  font-weight: 500;
+  letter-spacing: 0;
+  opacity: 0.78;
+}
+
+.plan-execute-section .read-more-btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 18px;
+  background: currentColor;
+  color: #111111;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  transform: translateX(0);
+  transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+}
+
+.plan-execute-section .read-more-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 24px 46px rgba(0, 0, 0, 0.22);
+}
+
+.plan-execute-section .read-more-btn:hover .read-more-btn-icon {
+  transform: translateX(4px);
+}
+
+.plan-execute-section .read-more-btn:focus-visible {
+  outline: 3px solid rgba(197, 162, 95, 0.45);
+  outline-offset: 4px;
 }
 
 .plan-execute-section .grid-row:first-child .read-more-btn {
   border-color: #ffffff;
   color: #ffffff;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.06) 100%);
 }
 
-.plan-execute-section .grid-row:first-child .read-more-btn:hover {
-  color: #000000;
+.plan-execute-section .grid-row:first-child .read-more-btn .read-more-btn-icon {
+  background: #ffffff;
+  color: #111111;
 }
 
 .plan-execute-section .grid-row:nth-child(2) .read-more-btn {
-  border-color: #000000;
-  color: #000000;
+  border-color: #111111;
+  color: #f8f6f1;
+  background: linear-gradient(135deg, #111111 0%, #2a2a2a 100%);
+}
+
+.plan-execute-section .grid-row:nth-child(2) .read-more-btn .read-more-btn-note {
+  opacity: 0.72;
+}
+
+.plan-execute-section .grid-row:nth-child(2) .read-more-btn .read-more-btn-icon {
+  background: #ffffff;
+  color: #111111;
 }
 
 .plan-execute-section .grid-row:nth-child(2) .read-more-btn:hover {
-  color: #ffffff;
+  background: linear-gradient(135deg, #000000 0%, #1c1c1c 100%);
 }
 
 @media (max-width: 900px) {
@@ -293,7 +349,9 @@
   }
 
   .plan-execute-section .read-more-btn {
-    padding: 0.875rem 1.75rem;
+    width: 100%;
+    margin-left: 0;
+    padding: 1rem;
     font-size: 0.95rem;
   }
 
@@ -310,6 +368,10 @@
   .plan-execute-section .grid-row,
   .plan-execute-section .image-cell img,
   .plan-execute-section .read-more-btn {
+    transition: none;
+  }
+
+  .plan-execute-section .read-more-btn-icon {
     transition: none;
   }
 }

@@ -154,7 +154,7 @@
   position: relative;
   color: rgb(255, 255, 255);
   font-weight: 600;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: var(--font-heading);
   transition: color 0.3s ease;
   padding: 0.5rem 0;
   text-decoration: none;
@@ -273,7 +273,7 @@ html[dir="ltr"] .contact-info {
 .phone {
   font-weight: 700;
   color: rgb(255, 255, 255);
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: var(--font-heading);
 }
 
 .lang-link {

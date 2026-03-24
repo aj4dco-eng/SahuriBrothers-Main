@@ -60,8 +60,8 @@ function App() {
                 <main id="app" className="homepage">
                   <Hero />
                   <PlanExecuteSection />
-                  <ProjectsGallery />
                   <VideoSection />
+                  <ProjectsGallery />
                   <ClientsCarousel />
                   <ContactForm />
                   <Footer />

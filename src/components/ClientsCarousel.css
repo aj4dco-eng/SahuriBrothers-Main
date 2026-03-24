@@ -5,6 +5,21 @@
   overflow: hidden;
 }
 
+.clients-section .section-title {
+  max-width: 48rem;
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+
+.clients-section .section-title h2 {
+  margin-bottom: 0.8rem;
+}
+
+.clients-section .section-subtitle {
+  margin: 0 auto;
+  text-align: center;
+}
+
 .clients-carousel {
   position: relative;
   width: 100%;

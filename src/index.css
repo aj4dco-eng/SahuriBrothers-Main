@@ -1,9 +1,136 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Cairo:wght@300;400;600;700&display=swap');
 @import url('./components/ScrollAnimation.css');
+
+@font-face {
+  font-family: 'Roboto-Black';
+  src: local('Roboto-Black');
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto-ExtraBold';
+  src: local('Roboto-ExtraBold');
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto-ExtraLight';
+  src: local('Roboto-ExtraLight');
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto-Italic-VariableFont_wdth,wght_0';
+  src: local('Roboto-Italic-VariableFont_wdth,wght_0');
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto-Regular';
+  src: local('Roboto-Regular');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Stormfaze';
+  src: local('Stormfaze');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cairo-Black';
+  src: local('Cairo-Black');
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cairo-Bold';
+  src: local('Cairo-Bold');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cairo-ExtraBold';
+  src: local('Cairo-ExtraBold');
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cairo-ExtraLight';
+  src: local('Cairo-ExtraLight');
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cairo-Light';
+  src: local('Cairo-Light');
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cairo-Medium';
+  src: local('Cairo-Medium');
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cairo-Regular';
+  src: local('Cairo-Regular');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cairo-SemiBold';
+  src: local('Cairo-SemiBold');
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cairo-VariableFont_slnt,wght';
+  src: local('Cairo-VariableFont_slnt,wght');
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+}
 
 @font-face {
   font-family: 'Gisha';
   src: local('Gisha');
+}
+
+:root {
+  --font-body: 'Roboto-Regular';
+  --font-heading: 'Roboto-ExtraBold';
+  --font-display: 'Stormfaze';
+  --font-light: 'Roboto-ExtraLight';
+  --font-italic: 'Roboto-Italic-VariableFont_wdth,wght_0';
 }
 
 * {
@@ -25,7 +152,7 @@ html[dir="rtl"] {
 }
 
 body {
-  font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--font-body);
   background-color: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
   line-height: 1.6;
@@ -34,12 +161,37 @@ body {
 }
 
 /* Language-specific fonts */
+html[lang="en"] {
+  --font-body: 'Roboto-Regular';
+  --font-heading: 'Roboto-ExtraBold';
+  --font-display: 'Stormfaze';
+  --font-light: 'Roboto-ExtraLight';
+  --font-italic: 'Roboto-Italic-VariableFont_wdth,wght_0';
+}
+
 html[lang="en"] body,
 html[lang="en"] button,
 html[lang="en"] input,
 html[lang="en"] textarea,
 html[lang="en"] select {
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--font-body);
+}
+
+html[lang="en"] h1,
+html[lang="en"] h2,
+html[lang="en"] h3,
+html[lang="en"] h4,
+html[lang="en"] h5,
+html[lang="en"] h6 {
+  font-family: var(--font-heading);
+}
+
+html[lang="ar"] {
+  --font-body: 'Cairo-Regular';
+  --font-heading: 'Cairo-ExtraBold';
+  --font-display: 'Cairo-Black';
+  --font-light: 'Cairo-Light';
+  --font-italic: 'Cairo-VariableFont_slnt,wght';
 }
 
 html[lang="ar"] body,
@@ -47,7 +199,15 @@ html[lang="ar"] button,
 html[lang="ar"] input,
 html[lang="ar"] textarea,
 html[lang="ar"] select {
-  font-family: 'Cairo', sans-serif;
+  font-family: var(--font-body);
+}
+
+html[lang="he"] {
+  --font-body: 'Gisha';
+  --font-heading: 'Gisha';
+  --font-display: 'Gisha';
+  --font-light: 'Gisha';
+  --font-italic: 'Gisha';
 }
 
 html[lang="he"] body,
@@ -55,7 +215,7 @@ html[lang="he"] button,
 html[lang="he"] input,
 html[lang="he"] textarea,
 html[lang="he"] select {
-  font-family: 'Gisha', 'Arial Hebrew', sans-serif;
+  font-family: var(--font-body);
 }
 
 a {
@@ -76,6 +236,7 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: var(--font-heading);
   font-weight: 600;
   margin-bottom: 1rem;
 }

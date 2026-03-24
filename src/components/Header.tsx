@@ -58,6 +58,7 @@ const Header: React.FC = () => {
               </li>
             ) : (
               <>
+                <li><NavLink className={navClassName} end to="/" onClick={() => setIsMenuOpen(false)}>{t('nav.home')}</NavLink></li>
                 <li><NavLink className={navClassName} to="/about" onClick={() => setIsMenuOpen(false)}>{t('nav.about')}</NavLink></li>
                 <li className="dropdown">
                   <NavLink className={navClassName} to="/projects" onClick={() => setIsMenuOpen(false)}>{t('nav.projects')}</NavLink>

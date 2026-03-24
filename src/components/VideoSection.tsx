@@ -1,114 +1,68 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import './VideoSection.css'
 import { useLanguage } from '../context/LanguageContext'
-
-const PREFERRED_VIDEO_IMAGES = [
-  '/video-01.jpg',
-  '/video-02.jpg',
-  '/video-03.jpg',
-  '/video-04.jpg',
-]
-
-const FALLBACK_VIDEO_IMAGES = [
-  '/0126sahuri-01.jpg',
-  '/0126sahuri-02.jpg',
-  '/0126sahuri-03.jpg',
-  '/0126sahuri-04.jpg',
-]
+import { pickText, toUiLanguage } from '../lib/localized'
 
 const VideoSection: React.FC = () => {
-  const { t } = useLanguage()
-  const [images, setImages] = useState<string[]>(FALLBACK_VIDEO_IMAGES)
-  const [lightboxOpen, setLightboxOpen] = useState(false)
-  const [index, setIndex] = useState(0)
+  const { t, language } = useLanguage()
+  const lang = toUiLanguage(language)
 
-  useEffect(() => {
-    let active = true
+  const caseStudyLabel = pickText(lang, {
+    en: 'Case Study',
+    he: 'מקרה בוחן',
+    ar: 'دراسة حالة',
+  })
 
-    const checkPreferredImages = async () => {
-      const checks = await Promise.all(
-        PREFERRED_VIDEO_IMAGES.map(
-          (src) =>
-            new Promise<boolean>((resolve) => {
-              const img = new Image()
-              img.onload = () => resolve(true)
-              img.onerror = () => resolve(false)
-              img.src = src
-            })
-        )
-      )
+  const videoStatPrimary = pickText(lang, {
+    en: 'VRF',
+    he: 'מערכות VRF',
+    ar: 'أنظمة VRF',
+  })
 
-      if (active && checks.every(Boolean)) {
-        setImages(PREFERRED_VIDEO_IMAGES)
-      }
-    }
+  const videoStatPrimaryNote = pickText(lang, {
+    en: 'Integrated with architectural precision.',
+    he: 'משולב בדיוק אדריכלי.',
+    ar: 'مدمج بدقة معمارية.',
+  })
 
-    checkPreferredImages()
+  const videoStatSecondary = pickText(lang, {
+    en: 'Invisible',
+    he: 'בלתי נראה',
+    ar: 'غير مرئي',
+  })
 
-    return () => {
-      active = false
-    }
-  }, [])
-
-  const openLightbox = (i = 0) => {
-    setIndex(i)
-    setLightboxOpen(true)
-  }
-
-  const closeLightbox = () => setLightboxOpen(false)
-
-  const prev = () => setIndex((i) => (i - 1 + images.length) % images.length)
-  const next = () => setIndex((i) => (i + 1) % images.length)
+  const videoStatSecondaryNote = pickText(lang, {
+    en: 'Systems designed to disappear into the space.',
+    he: 'מערכות שתוכננו להיעלם בתוך החלל.',
+    ar: 'أنظمة صممت لتختفي داخل المساحة.',
+  })
 
   return (
     <section className="section video-section">
-      <div className="grid-rows">
-        <div className="grid-row rtl-direction">
-          <div
-            className="grid-cell video-cell"
-            onClick={() => openLightbox(0)}
-            role="button"
-            aria-label="Open media gallery"
-            style={{ backgroundImage: `url(${images[0]})` }}
-          >
-            <div className="video-play">
-              <div className="play-circle">
-                <svg viewBox="0 0 24 24" width="36" height="36" fill="white">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </div>
-            </div>
+      <div className="video-section-shell">
+        <div className="video-section-intro">
+          <span className="video-section-kicker" dir="auto">{caseStudyLabel}</span>
+          <h2 dir="auto">{t('video.title')}</h2>
+          <h3 dir="auto">{t('video.subtitle')}</h3>
+        </div>
+
+        <div className="video-section-body">
+          <div className="video-section-copy">
+            <p dir="auto">{t('video.desc1')}</p>
+            <p className="case-study-note" dir="auto">{t('video.desc2')}</p>
           </div>
-
-          <div className="grid-cell text-cell">
-            <div className="grid-row-text">
-              <h2>{t('video.title')}</h2>
-              <h3>{t('video.subtitle')}</h3>
-              <p>{t('video.desc1')}</p>
-              <p className="case-study-note">{t('video.desc2')}</p>
-
-              <div className="video-thumbs">
-                {images.map((src, i) => (
-                  <button key={src} className="thumb" onClick={() => openLightbox(i)} aria-label={`Open image ${i + 1}`}>
-                    <img src={src} alt={`thumb-${i + 1}`} />
-                  </button>
-                ))}
-              </div>
+          <div className="video-section-aside">
+            <div className="video-section-stat">
+              <span className="video-section-stat-value" dir="auto">{videoStatPrimary}</span>
+              <span className="video-section-stat-label" dir="auto">{videoStatPrimaryNote}</span>
+            </div>
+            <div className="video-section-stat">
+              <span className="video-section-stat-value" dir="auto">{videoStatSecondary}</span>
+              <span className="video-section-stat-label" dir="auto">{videoStatSecondaryNote}</span>
             </div>
           </div>
         </div>
       </div>
-
-      {lightboxOpen && (
-        <div className="lightbox" role="dialog" aria-modal="true">
-          <button className="lb-close" onClick={closeLightbox} aria-label="Close">&times;</button>
-          <button className="lb-prev" onClick={prev} aria-label="Previous">&#8249;</button>
-          <div className="lb-content">
-            <img src={images[index]} alt={`gallery-${index + 1}`} />
-          </div>
-          <button className="lb-next" onClick={next} aria-label="Next">&#8250;</button>
-        </div>
-      )}
     </section>
   )
 }
