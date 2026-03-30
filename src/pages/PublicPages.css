@@ -1370,31 +1370,49 @@ html[lang="ar"] .contact-info-footer {
   }
 }
 
-@media (max-width: 900px) {
-  .contact-content-wrapper {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-
-  .contact-info-card {
-    position: static;
-    padding: 2rem 1.5rem;
-  }
-
-  .contact-page .public-shell {
-    width: calc(100% - 2rem);
-  }
-}
 
 @media (max-width: 768px) {
   .about-page,
-  .services-page {
+  .services-page,
+  .contact-page {
     overflow-x: hidden;
   }
 
   .about-page .public-shell,
-  .services-page .public-shell {
+  .services-page .public-shell,
+  .contact-page .public-shell {
     width: calc(100% - 1rem);
+  }
+
+  .contact-page .about-hero {
+    padding: 5rem 1rem 2rem;
+  }
+
+  .contact-page .about-hero-title {
+    font-size: clamp(2rem, 9vw, 2.6rem);
+    line-height: 1.1;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .contact-page .about-intro {
+    margin: 2rem auto;
+    padding: 0 0.5rem;
+  }
+
+  .contact-content-wrapper {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin: 2rem auto;
+  }
+
+  .contact-info-card {
+    position: static;
+    padding: 1.5rem 1.2rem;
+  }
+
+  .contact-form-wrapper .contact-form-section {
+    padding: 0;
   }
 
   .projects-grid {

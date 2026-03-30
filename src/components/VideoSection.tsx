@@ -7,12 +7,6 @@ const VideoSection: React.FC = () => {
   const { t, language } = useLanguage()
   const lang = toUiLanguage(language)
 
-  const caseStudyLabel = pickText(lang, {
-    en: 'Case Study',
-    he: 'מקרה בוחן',
-    ar: 'دراسة حالة',
-  })
-
   const videoStatPrimary = pickText(lang, {
     en: 'VRF',
     he: 'מערכות VRF',
@@ -41,8 +35,7 @@ const VideoSection: React.FC = () => {
     <section className="section video-section">
       <div className="video-section-shell">
         <div className="video-section-intro">
-          <span className="video-section-kicker" dir="auto">{caseStudyLabel}</span>
-          <h2 dir="auto">{t('video.title')}</h2>
+<h2 dir="auto">{t('video.title')}</h2>
           <h3 dir="auto">{t('video.subtitle')}</h3>
         </div>
 

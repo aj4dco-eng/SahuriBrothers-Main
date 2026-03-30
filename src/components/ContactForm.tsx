@@ -152,11 +152,12 @@ const ContactForm: React.FC = () => {
 
                 {/* Name + Phone row */}
                 <div className="form-row">
-                  <div className="form-group">
+                  <div className={`form-group floating ${errors.name ? 'has-error' : ''}`}>
                     <input
                       type="text"
+                      id="field-name"
                       name="name"
-                      placeholder={t('contact.name')}
+                      placeholder=" "
                       value={formData.name}
                       onChange={handleChange}
                       aria-label={t('contact.name')}
@@ -165,16 +166,18 @@ const ContactForm: React.FC = () => {
                       dir={isRtl ? 'rtl' : 'ltr'}
                       className={errors.name ? 'input-error' : ''}
                     />
+                    <label htmlFor="field-name">{t('contact.name')}</label>
                     {errors.name && (
                       <span id="error-name" className="field-error" role="alert">{errors.name}</span>
                     )}
                   </div>
 
-                  <div className="form-group">
+                  <div className={`form-group floating ${errors.phone ? 'has-error' : ''}`}>
                     <input
                       type="tel"
+                      id="field-phone"
                       name="phone"
-                      placeholder={t('contact.phone')}
+                      placeholder=" "
                       value={formData.phone}
                       onChange={handleChange}
                       aria-label={t('contact.phone')}
@@ -183,6 +186,7 @@ const ContactForm: React.FC = () => {
                       dir={isRtl ? 'rtl' : 'ltr'}
                       className={`${isRtl ? 'phone-input-rtl' : ''} ${errors.phone ? 'input-error' : ''}`}
                     />
+                    <label htmlFor="field-phone">{t('contact.phone')}</label>
                     {errors.phone && (
                       <span id="error-phone" className="field-error" role="alert">{errors.phone}</span>
                     )}
@@ -190,11 +194,12 @@ const ContactForm: React.FC = () => {
                 </div>
 
                 {/* Email */}
-                <div className="form-group">
+                <div className={`form-group floating ${errors.email ? 'has-error' : ''}`}>
                   <input
                     type="email"
+                    id="field-email"
                     name="email"
-                    placeholder={t('contact.email')}
+                    placeholder=" "
                     value={formData.email}
                     onChange={handleChange}
                     aria-label={t('contact.email')}
@@ -203,16 +208,18 @@ const ContactForm: React.FC = () => {
                     dir="ltr"
                     className={errors.email ? 'input-error' : ''}
                   />
+                  <label htmlFor="field-email">{t('contact.email')}</label>
                   {errors.email && (
                     <span id="error-email" className="field-error" role="alert">{errors.email}</span>
                   )}
                 </div>
 
                 {/* Message */}
-                <div className="form-group">
+                <div className={`form-group floating ${errors.message ? 'has-error' : ''}`}>
                   <textarea
+                    id="field-message"
                     name="message"
-                    placeholder={t('contact.message')}
+                    placeholder=" "
                     rows={4}
                     value={formData.message}
                     onChange={handleChange}
@@ -222,6 +229,7 @@ const ContactForm: React.FC = () => {
                     dir={isRtl ? 'rtl' : 'ltr'}
                     className={errors.message ? 'input-error' : ''}
                   />
+                  <label htmlFor="field-message">{t('contact.message')}</label>
                   {errors.message && (
                     <span id="error-message" className="field-error" role="alert">{errors.message}</span>
                   )}

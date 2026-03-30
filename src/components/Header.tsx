@@ -10,6 +10,7 @@ import { pickText, toUiLanguage } from '../lib/localized'
 const Header: React.FC = () => {
   const { t, language } = useLanguage()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isProjectsOpen, setIsProjectsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const { isAdmin } = useRole()
   const { user, signOut } = useAuth()
@@ -25,13 +26,30 @@ const Header: React.FC = () => {
   }, [])
 
   const toggleMenu = () => {
-    setIsMenuOpen((prev) => !prev)
+    setIsMenuOpen((prev) => {
+      if (prev) setIsProjectsOpen(false)
+      return !prev
+    })
   }
+
+  useEffect(() => {
+    if (!isMenuOpen) return
+    const handleOutside = (e: MouseEvent) => {
+      const target = e.target as HTMLElement
+      if (!target.closest('.header-nav') && !target.closest('.menu-toggle')) {
+        setIsMenuOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleOutside)
+    return () => document.removeEventListener('mousedown', handleOutside)
+  }, [isMenuOpen])
 
   const navClassName = ({ isActive }: { isActive: boolean }) =>
     isActive ? 'nav-link active' : 'nav-link'
 
   return (
+    <>
+    {isMenuOpen && <div className="mobile-menu-overlay" onClick={() => setIsMenuOpen(false)} aria-hidden="true" />}
     <header className={`site-header ${location.pathname === '/' ? 'home-header' : ''} ${isScrolled ? 'scrolled' : ''}`}>
       <div className="header-container">
         <div className="header-left">
@@ -60,9 +78,21 @@ const Header: React.FC = () => {
               <>
                 <li><NavLink className={navClassName} end to="/" onClick={() => setIsMenuOpen(false)}>{t('nav.home')}</NavLink></li>
                 <li><NavLink className={navClassName} to="/about" onClick={() => setIsMenuOpen(false)}>{t('nav.about')}</NavLink></li>
-                <li className="dropdown">
-                  <NavLink className={navClassName} to="/projects" onClick={() => setIsMenuOpen(false)}>{t('nav.projects')}</NavLink>
-                  <ul className="submenu">
+                <li className={`dropdown mobile-accordion ${isProjectsOpen ? 'open' : ''}`}>
+                  <div className="mobile-projects-row">
+                    <NavLink className={navClassName} to="/projects" onClick={() => setIsMenuOpen(false)}>{t('nav.projects')}</NavLink>
+                    <button
+                      className={`mobile-submenu-toggle ${isProjectsOpen ? 'open' : ''}`}
+                      onClick={() => setIsProjectsOpen(p => !p)}
+                      aria-label="Toggle projects"
+                      type="button"
+                    >
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                        <path d="M6 9l6 6 6-6" />
+                      </svg>
+                    </button>
+                  </div>
+                  <ul className={`submenu mobile-submenu ${isProjectsOpen ? 'open' : ''}`}>
                     <li><NavLink className={navClassName} to="/projects/private" onClick={() => setIsMenuOpen(false)}>{t('nav.projects.private')}</NavLink></li>
                     <li><NavLink className={navClassName} to="/projects/commercial" onClick={() => setIsMenuOpen(false)}>{t('nav.projects.commercial')}</NavLink></li>
                   </ul>
@@ -170,6 +200,7 @@ const Header: React.FC = () => {
         </div>
       </div>
     </header>
+    </>
   )
 }
 

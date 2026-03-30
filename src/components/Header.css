@@ -24,7 +24,7 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: 200;
   transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -190,6 +190,7 @@
   position: relative;
 }
 
+
 .submenu {
   position: absolute;
   top: 100%;
@@ -335,6 +336,10 @@ html[dir="ltr"] .contact-info {
   border-color: rgba(255, 255, 255, 0.8);
 }
 
+.mobile-menu-overlay {
+  display: none;
+}
+
 .mobile-menu-footer {
   display: none;
 }
@@ -447,34 +452,40 @@ html[dir="rtl"] .whatsapp-button {
 
   .menu-toggle span {
     background: #ffffff;
-    width: 17px;
+    width: 20px;
     height: 2px;
     position: absolute;
-    transition: all 0.35s ease;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: transform 0.3s ease, opacity 0.2s ease, width 0.3s ease;
+    border-radius: 2px;
   }
 
   .menu-toggle span:nth-child(1) {
-    transform: translateY(-5px);
+    transform: translateX(-50%) translateY(-6px);
   }
 
   .menu-toggle span:nth-child(2) {
-    transform: translateY(5px);
+    transform: translateX(-50%) translateY(0px);
   }
 
   .menu-toggle span:nth-child(3) {
-    transform: translateY(7px);
+    transform: translateX(-50%) translateY(6px);
+    width: 14px;
   }
 
   .menu-toggle.active span:nth-child(1) {
-    transform: translateY(0) rotate(45deg);
+    transform: translateX(-50%) translateY(0) rotate(45deg);
   }
 
   .menu-toggle.active span:nth-child(2) {
     opacity: 0;
+    transform: translateX(-50%) scaleX(0);
   }
 
   .menu-toggle.active span:nth-child(3) {
-    transform: translateY(6px);
+    transform: translateX(-50%) translateY(0) rotate(-45deg);
+    width: 20px;
   }
 
   .logo-image {
@@ -553,14 +564,15 @@ html[dir="rtl"] .whatsapp-button {
     backdrop-filter: blur(14px);
   }
 
+  /* Menu opens from the same side as the burger button (inline-end) */
   html[dir="rtl"] .header-nav {
-    right: 0.5rem;
-    left: auto;
+    left: 0.5rem;
+    right: auto;
   }
 
   html[dir="ltr"] .header-nav {
-    left: 0.5rem;
-    right: auto;
+    right: 0.5rem;
+    left: auto;
   }
 
   .header-nav.active {
@@ -568,6 +580,21 @@ html[dir="rtl"] .whatsapp-button {
     overflow-y: auto;
     opacity: 1;
     transform: translateY(0);
+  }
+
+  .mobile-menu-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 99;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(2px);
+    animation: overlayFadeIn 0.2s ease;
+  }
+
+  @keyframes overlayFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
 
   .mobile-menu-footer {
@@ -679,10 +706,15 @@ html[dir="rtl"] .whatsapp-button {
   }
 
   .nav-menu li a:hover,
-  .nav-link:hover,
-  .nav-link.active {
+  .nav-link:hover {
     color: #ffffff;
     background: rgba(255, 255, 255, 0.08);
+  }
+
+  .nav-link.active {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+    border-inline-start: 3px solid #ffffff;
   }
 
   .submenu {
@@ -698,17 +730,54 @@ html[dir="rtl"] .whatsapp-button {
     transition: max-height 0.3s ease;
   }
 
-  .submenu a {
-    color: #ffffff;
-    font-size: 0.88rem;
+  .nav-menu .dropdown:hover .submenu:not(.open) {
+    max-height: 0;
   }
 
-  .submenu a:hover {
+  .nav-menu .dropdown .submenu.open {
+    max-height: 200px;
+  }
+
+  .submenu a,
+  .submenu .nav-link {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.88rem;
+    padding-inline-start: 1.75rem;
+  }
+
+  .submenu a:hover,
+  .submenu .nav-link:hover,
+  .submenu .nav-link.active {
     color: #ffffff;
     background-color: rgba(255, 255, 255, 0.08);
+    border-inline-start: none;
   }
 
-  .nav-menu .dropdown:hover .submenu {
-    max-height: 300px;
+  .mobile-projects-row {
+    display: flex;
+    align-items: center;
+  }
+
+  .mobile-projects-row .nav-link {
+    flex: 1;
+  }
+
+  .mobile-submenu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: transform 0.25s ease, color 0.2s ease;
+  }
+
+  .mobile-submenu-toggle.open {
+    transform: rotate(180deg);
+    color: #ffffff;
   }
 }

@@ -25,6 +25,7 @@ import ScrollProgressBar from './components/ScrollProgressBar'
 import CursorSpotlight from './components/CursorSpotlight'
 import WhatsAppWidget from './components/WhatsAppWidget'
 import AccessibilityWidget from './components/AccessibilityWidget'
+import BackToTop from './components/BackToTop'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -45,6 +46,7 @@ function AppContent() {
       <Header />
       <WhatsAppWidget />
       <AccessibilityWidget />
+      <BackToTop />
 
       <div key={pathname} className="page-transition">
         <Routes>
