@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import './ProjectsGallery.css'
 import { useLanguage } from '../context/LanguageContext'
 import { pickText, toUiLanguage } from '../lib/localized'
+import TiltCard from './TiltCard'
+import Skeleton from './Skeleton'
 
 interface ProjectImage {
   id: number
@@ -14,6 +16,7 @@ const ProjectsGallery: React.FC = () => {
   const { t, language } = useLanguage()
   const lang = toUiLanguage(language)
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set())
 
   const local = ['/0126sahuri-01.jpg', '/0126sahuri-02.jpg', '/0126sahuri-03.jpg', '/0126sahuri-04.jpg']
   const projectTitles = [
@@ -56,21 +59,26 @@ const ProjectsGallery: React.FC = () => {
           <div className="slider-wrapper">
             {projects.map((project, index) => {
               const titleIndex = index % projectTitles.length
+              const isVisible = index >= currentIndex && index < currentIndex + itemsPerView
+              const isLoaded = loadedImages.has(project.id)
               return (
-                <div
+                <TiltCard
                   key={project.id}
-                  className={`gallery-item ${
-                    index >= currentIndex && index < currentIndex + itemsPerView
-                      ? 'visible'
-                      : 'hidden'
-                  }`}
+                  className={`gallery-item ${isVisible ? 'visible' : 'hidden'}`}
+                  intensity={6}
                 >
-                  <img src={project.url} alt={project.alt} />
+                  {!isLoaded && <Skeleton height="100%" borderRadius="0" className="gallery-img-skeleton" />}
+                  <img
+                    src={project.url}
+                    alt={project.alt}
+                    onLoad={() => setLoadedImages(prev => new Set([...prev, project.id]))}
+                    style={{ opacity: isLoaded ? 1 : 0, transition: 'opacity 0.4s ease' }}
+                  />
                   <div className="gallery-item-overlay">
                     <h3>{pickText(lang, projectTitles[titleIndex])}</h3>
                     <p>{project.alt}</p>
                   </div>
-                </div>
+                </TiltCard>
               )
             })}
           </div>

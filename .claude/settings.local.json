@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wc -l /c/Users/SASD/Documents/GitHub/SahuriBrothers-Main/src/pages/*.tsx)",
+      "Bash(xargs wc:*)",
+      "Bash(find /c/Users/SASD/Documents/GitHub/SahuriBrothers-Main/src -type f \\\\\\(-name *.tsx -o -name *.ts -o -name *.css \\\\\\))",
+      "Bash(npm run:*)",
+      "Bash(ls -la /c/Users/SASD/Documents/GitHub/SahuriBrothers-Main/.env*)"
+    ]
+  }
+}

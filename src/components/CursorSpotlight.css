@@ -1,0 +1,27 @@
+.cursor-spotlight {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(184, 134, 11, 0.07) 0%,
+    transparent 68%
+  );
+  transform: translate(
+    calc(var(--cursor-x, -999px) - 260px),
+    calc(var(--cursor-y, -999px) - 260px)
+  );
+  z-index: 0;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Hide on touch devices — no cursor to follow */
+@media (hover: none) {
+  .cursor-spotlight {
+    display: none;
+  }
+}

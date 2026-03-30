@@ -17,7 +17,8 @@ export const RoleProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [role, setRoleState] = useState<Role>(() => {
     try {
       const v = localStorage.getItem(STORAGE_KEY)
-      return (v as Role) || 'viewer'
+      const VALID_ROLES: Role[] = ['viewer', 'customer', 'admin']
+      return VALID_ROLES.includes(v as Role) ? (v as Role) : 'viewer'
     } catch {
       return 'viewer'
     }

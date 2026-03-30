@@ -2,6 +2,7 @@
 import { Link } from 'react-router-dom'
 import Footer from '../components/Footer'
 import ScrollAnimation from '../components/ScrollAnimation'
+import TiltCard from '../components/TiltCard'
 import { useLanguage } from '../context/LanguageContext'
 import { pickText, toUiLanguage } from '../lib/localized'
 
@@ -129,12 +130,12 @@ export default function PublicServices() {
               animation={index % 2 === 0 ? 'slideLeft' : 'slideRight'} 
               delay={index * 100}
             >
-              <div className="service-card-modern">
+              <TiltCard className="service-card-modern" intensity={7}>
                 <div className="service-number">{service.number}</div>
                 <div className="service-icon">{service.icon}</div>
                 <h3 className="service-title">{service.title}</h3>
                 <p className="service-description">{service.description}</p>
-              </div>
+              </TiltCard>
             </ScrollAnimation>
           ))}
         </div>
@@ -165,11 +166,11 @@ export default function PublicServices() {
                   animation="scaleUp" 
                   delay={100 + (index * 100)}
                 >
-                  <div className="feature-card">
+                  <TiltCard className="feature-card" intensity={6}>
                     <div className="feature-icon">{feature.icon}</div>
                     <h3 className="feature-title">{feature.title}</h3>
                     <p className="feature-description">{feature.description}</p>
-                  </div>
+                  </TiltCard>
                 </ScrollAnimation>
               ))}
             </div>

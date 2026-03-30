@@ -1,5 +1,59 @@
 @import url('./components/ScrollAnimation.css');
 
+/* ════════════════════════════════════════════════════════
+   ACCESSIBILITY OVERRIDES
+   Applied via JS classes on <html> by AccessibilityWidget
+   ════════════════════════════════════════════════════════ */
+
+/* Font size levels */
+html.a11y-font-lg  { font-size: 110%; }
+html.a11y-font-xl  { font-size: 125%; }
+html.a11y-font-xxl { font-size: 140%; }
+
+/* High contrast */
+html.a11y-high-contrast {
+  filter: contrast(160%) brightness(1.05);
+}
+
+/* Grayscale */
+html.a11y-grayscale {
+  filter: grayscale(100%);
+}
+
+/* Both high-contrast + grayscale */
+html.a11y-high-contrast.a11y-grayscale {
+  filter: grayscale(100%) contrast(160%) brightness(1.05);
+}
+
+/* Underline all links */
+html.a11y-underline-links a {
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+}
+
+/* Pause all animations */
+html.a11y-pause-animations *,
+html.a11y-pause-animations *::before,
+html.a11y-pause-animations *::after {
+  animation-play-state: paused !important;
+  transition-duration: 1ms !important;
+}
+
+/* Readable / dyslexia-friendly font */
+html.a11y-readable-font,
+html.a11y-readable-font * {
+  font-family: Arial, Helvetica, sans-serif !important;
+  line-height: 1.85 !important;
+  letter-spacing: 0.04em !important;
+  word-spacing: 0.12em !important;
+}
+
+/* Large cursor */
+html.a11y-large-cursor,
+html.a11y-large-cursor * {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M8 4 L8 26 L14 20 L18 28 L21 27 L17 19 L25 19 Z' fill='black' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E") 8 4, auto !important;
+}
+
 @font-face {
   font-family: 'Roboto-Black';
   src: local('Roboto-Black');

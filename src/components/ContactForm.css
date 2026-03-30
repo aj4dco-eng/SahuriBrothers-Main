@@ -53,9 +53,15 @@
 
 .contact-form-section fieldset {
   min-width: 0;
+  width: 100%;
   margin: 0;
   padding: 0;
   border: 0;
+  box-sizing: border-box;
+}
+
+.contact-form-section form {
+  width: 100%;
 }
 
 .contact-form {
@@ -85,8 +91,9 @@
 }
 
 .form-group {
-  margin-bottom: 1.8rem;
+  margin-bottom: 1.5rem;
   min-width: 0;
+  width: 100%;
 }
 
 .form-group label {
@@ -97,22 +104,60 @@
   font-size: 0.95rem;
 }
 
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: 1rem;
-  border: 2px solid #e0e0e0;
-  border-radius: 0;
+  box-sizing: border-box;
+  padding: 1rem 1rem;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 8px;
   font-family: inherit;
   font-size: 1rem;
-  transition: all 0.3s ease;
+  line-height: 1.5;
+  transition: all 0.25s ease;
   background: #fafafa;
+  color: #111111;
   text-align: start;
   unicode-bidi: plaintext;
+  display: block;
+}
+
+.form-group input.input-error,
+.form-group textarea.input-error {
+  border-color: #e53e3e;
+  background: #fff5f5;
+}
+
+.field-error {
+  display: block;
+  color: #e53e3e;
+  font-size: 0.82rem;
+  margin-top: 0.3rem;
+}
+
+.submit-error {
+  color: #e53e3e;
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+  padding: 0.6rem 0.75rem;
+  background: #fff5f5;
+  border: 1px solid #fecaca;
+  border-radius: 6px;
+}
+
+.form-group.checkbox-error label {
+  color: #e53e3e;
 }
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
+  color: #888888;
   text-align: start;
   unicode-bidi: plaintext;
 }
@@ -144,7 +189,8 @@ html[lang="ar"] .form-group textarea::placeholder {
 }
 
 .form-group textarea {
-  min-height: 140px;
+  min-height: 150px;
+  max-height: 300px;
   resize: vertical;
 }
 
@@ -152,8 +198,8 @@ html[lang="ar"] .form-group textarea::placeholder {
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
-  margin-bottom: 2rem;
-  margin-top: 1.5rem;
+  margin-bottom: 1.25rem;
+  margin-top: 0.5rem;
 }
 
 .form-group.checkbox input {
@@ -186,12 +232,12 @@ html[lang="ar"] .form-group textarea::placeholder {
 
 .submit-btn {
   width: 100%;
-  padding: 1.1rem 2rem;
+  padding: 0.9rem 2rem;
   background: #000000;
   color: #ffffff;
   border: 2px solid #000000;
-  border-radius: 0;
-  font-size: 1.05rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -224,6 +270,38 @@ html[lang="ar"] .form-group textarea::placeholder {
 .submit-btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+.success-icon {
+  width: 72px;
+  height: 72px;
+  color: #22c55e;
+  margin: 0 auto 1.25rem;
+}
+
+.success-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.success-circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  animation: drawCircle 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.1s forwards;
+}
+
+.success-check {
+  stroke-dasharray: 40;
+  stroke-dashoffset: 40;
+  animation: drawCheck 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.65s forwards;
+}
+
+@keyframes drawCircle {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes drawCheck {
+  to { stroke-dashoffset: 0; }
 }
 
 .form-success {
@@ -285,14 +363,18 @@ html[lang="ar"] .form-group textarea::placeholder {
     margin-bottom: 2rem;
   }
 
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
   .form-group input,
   .form-group textarea {
-    padding: 0.9rem;
+    padding: 0.9rem 1.1rem;
     font-size: 16px; /* Prevents zoom on iOS */
   }
 
   .submit-btn {
-    padding: 1rem 1.5rem;
+    padding: 0.85rem 1.5rem;
     font-size: 1rem;
   }
 }
@@ -324,19 +406,12 @@ html[lang="ar"] .form-group textarea::placeholder {
   }
 
   .form-group {
-    margin-bottom: 1.5rem;
-  }
-
-  .form-group.checkbox {
-    margin-top: 1.2rem;
-    margin-bottom: 1.8rem;
-  }
- 
-  .form-group {
     margin-bottom: 1rem;
   }
 
   .form-group.checkbox {
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
     gap: 0.5rem;
   }
 

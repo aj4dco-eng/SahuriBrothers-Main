@@ -31,6 +31,8 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.subtitle': 'Advanced climate control and heating solutions with engineering precision and high-end style',
     'hero.pause': 'Pause gallery',
     'hero.play': 'Play gallery',
+    'hero.previous': 'Previous slide',
+    'hero.next': 'Next slide',
     'hero.slide': 'Slide',
     'hero.scroll': 'scroll-down',
     
@@ -97,6 +99,8 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.subtitle': 'פתרונות תكييف וחימום מתקדמות עם דיוק הנדסי וסגנון פאר',
     'hero.pause': 'עצור גלרייה',
     'hero.play': 'הפעל גלרייה',
+    'hero.previous': 'שקופית קודמת',
+    'hero.next': 'שקופית הבאה',
     'hero.slide': 'סלייד',
     'hero.scroll': 'גלול למטה',
     
@@ -163,6 +167,8 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.subtitle': 'حلول تكييف وتدفئة متقدمة بدقة هندسية وأسلوب فاخر',
     'hero.pause': 'إيقاف المعرض',
     'hero.play': 'تشغيل المعرض',
+    'hero.previous': 'الشريحة السابقة',
+    'hero.next': 'الشريحة التالية',
     'hero.slide': 'شريحة',
     'hero.scroll': 'التمرير لأسفل',
     
